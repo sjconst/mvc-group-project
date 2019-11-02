@@ -3,7 +3,7 @@ const config = {
   development: {
     username: "root",
     password: process.env.DB_PASS,
-    database: "exampledb",
+    database: "personality_test",
     host: "localhost",
     dialect: "mysql"
   },
