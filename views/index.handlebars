@@ -1,33 +1,79 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+      <div class="col s12">
+        <div class="row">
+          <h1>{{msg}}</h1>
+          <h2>This is our Home Page!</h2>
+          {{!-- <form class="clearfix mb-4" action="POST">
+            <div class="form-group">
+              <label for="example-text">Example Text</label>
+              <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            </div>
+            <div class="form-group">
+              <label for="example-description">Example Description</label>
+              <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            </div>
+            <button id="submit" class="btn btn-primary float-right">Submit</button>
+          </form> --}}
+        </div>
+        <!-- Personality Type drop down -->
+        <div class="row">
+          <form action="GET">
+            <!-- Energy -->
+            <div class="input-field col s12 m3">
+              <select>
+                <option value="" disabled selected>Choose an option</option>
+                <option value="1">Introvert</option>
+                <option value="2">Extrovert</option>
+              </select>
+              <label>Energy</label>
+            </div>
+            <!-- Information -->
+            <div class="input-field col s12 m3">
+              <select>
+                <option value="" disabled selected>Choose an option</option>
+                <option value="1">Thinking</option>
+                <option value="2">Feeling</option>
+              </select>
+              <label>Information</label>
+            </div>
+            <!-- Decisions -->
+            <div class="input-field col s12 m3">
+              <select>
+                <option value="" disabled selected>Choose an option</option>
+                <option value="1">Intuition</option>
+                <option value="2">Sensing</option>
+              </select>
+              <label>Decisions</label>
+            </div>
+            <!-- Organization -->
+            <div class="input-field col s12 m3">
+              <select>
+                <option value="" disabled selected>Choose an option</option>
+                <option value="1">Judging</option>
+                <option value="2">Perceiving</option>
+              </select>
+              <label>Organization</label>
+            </div>
+            <div class="center">
+              <button id="submit" class="btn">Display Results</button>
+            </div>
+          </form>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+          <h4>Profiles</h4>
+          <ul id="example-list" class="list-group">
+            {{#each examples}}
+            <li data-id="{{this.id}}" class="list-group-item">
+              <a href="example/{{this.id}}">{{this.text}}</a>
+              {{!-- <button class="btn btn-danger right delete">ｘ</button> --}}
+            </li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>

@@ -3,13 +3,46 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"> --}}
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <title>Home Page</title>
 </head>
 
 <body>
-  {{{body}}}
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Example Title</a>
+        <ul class="right">
+          <li><a href="#!">Profiles</a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="personality-dropdown">Personality Types<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="waves-effect waves-light btn-large">Take Survey</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Personality Drop Down -->
+  <ul id="personality-dropdown" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li><a href="#!">three</a></li>
+    <li><a href="#!">four</a></li>
+  </ul>
+        
+
+  <main>
+    {{{body}}}
+  </main>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 
 </html>
