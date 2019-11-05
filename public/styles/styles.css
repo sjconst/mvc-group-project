@@ -23,3 +23,7 @@ label {
   width: 200px;
   transform: translateY(12px);
 }
+
+.survey-button-2 {
+  width: 300px;
+}
