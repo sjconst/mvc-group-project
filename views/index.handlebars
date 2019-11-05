@@ -4,18 +4,24 @@
       <div class="col s12">
         <div class="row">
           <h1 class="center-align">{{msg}}</h1>
-          {{!-- <form class="clearfix mb-4" action="POST">
-            <div class="form-group">
-              <label for="example-text">Example Text</label>
-              <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          <form class="clearfix" action="POST">
+            <div class="input-field form-group col s4 validate">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" aria-describedby="name" placeholder="John Smith">
             </div>
-            <div class="form-group">
-              <label for="example-description">Example Description</label>
-              <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <div class="input-field form-group col s4 validate">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com">
             </div>
-            <button id="submit" class="btn btn-primary float-right">Submit</button>
-          </form> --}}
+            <div class="col s4">
+              <a alt="Take Personality Test" target="_blank" href="https://app.crystalknows.com/personality-test?api_customer_id=25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=[USER_EMAIL_HERE]"><img class="survey-button-2" src=https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png /></a>
+            </div>
+          </form>
         </div>
+
+
+
+
         <!-- Personality Type drop down -->
         <div class="row">
           <form action="GET">
