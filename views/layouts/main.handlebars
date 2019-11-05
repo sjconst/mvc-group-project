@@ -16,15 +16,25 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Example Title</a>
+        <a href="/" class="brand-logo left">Example Title</a>
         <ul class="right">
           <li><a href="#!">Profiles</a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="article-dropdown">Articles<i class="material-icons right">arrow_drop_down</i></a></li>
           <li><a class="dropdown-trigger" href="#!" data-target="personality-dropdown">Personality Types<i class="material-icons right">arrow_drop_down</i></a></li>
-          <li><a class="waves-effect waves-light btn-large">Take Survey</a></li>
+          {{!-- <li><a class="waves-effect waves-light btn-large">Take Survey</a></li> --}}
+          <li><a alt="Take Personality Test" target="_blank" href="https://app.crystalknows.com/personality-test?api_customer_id=25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=[USER_EMAIL_HERE]"><img class="survey-button" src=https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png /></a></li>
         </ul>
       </div>
     </nav>
   </div>
+
+  <!-- Article Drop Down -->
+  <ul id="article-dropdown" class="dropdown-content">
+    <li><a href="#!">One</a></li>
+    <li><a href="#!">Two</a></li>
+    <li><a href="#!">Three</a></li>
+    <li><a href="#!">Four</a></li>
+  </ul>
 
   <!-- Personality Drop Down -->
   <ul id="personality-dropdown" class="dropdown-content">

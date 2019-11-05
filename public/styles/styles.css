@@ -7,6 +7,19 @@ main > .container {
   padding-top: 100px;
 }
 
+label {
+  font-size: 1rem!important;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+.dropdown-trigger:focus {
+  outline: 0;
+}
+
+.survey-button {
+  width: 200px;
+  transform: translateY(12px);
 }
