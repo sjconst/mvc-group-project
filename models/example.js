@@ -1,7 +1,18 @@
-module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+var Sequelize = require("sequalize");
+var sequelize = require("../config/config");
+
+// module.exports = function(sequelize, DataTypes) {
+  
+
+  var Test = sequelize.define("test", {
+    name: Sequelize.STRING,
+    email: Sequelize.STRING,
+    test_type: Sequelize.STRING,
+    results: Sequelize.TEXT
   });
-  return Example;
-};
+  // return Example;
+// };
+
+Test.sync();
+
+module.exports = Test;
