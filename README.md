@@ -11,7 +11,7 @@ The goal of the Personality Inventory application is to assist grade school stud
 - NPM modules - Dependencies: 
     - dotenv
     - express
-    - express-hadlebars
+    - express-handlebars
     - mySql2
     - Sequelize
 - NPM modules - Developer's Dependencies:

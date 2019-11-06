@@ -1,39 +1,37 @@
-var Sequelize = require("sequalize");
-var sequelize = require("../config/config");
+// var Sequelize = require("sequelize");
+// var sequelize = require("../config/config");
 
-// module.exports = function(sequelize, DataTypes) {
-  
-
-  var Table = sequelize.define("test", {
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      validate: {
-        isEmail: true,
-        notEmpty: true,
-        len: [2]
-      }
-    },
-    email: {
-      type: Sequelize.STRING,
+module.exports = function(sequelize, DataTypes) {
+  var SurveyResults = sequelize.define("SurveyResults", {
+    name_: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isAlpha: true, 
         notEmpty: true,
-        len: [7]
+        len: [1, 30]
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+        notEmpty: true,
+        len: [1, 30]
       }
     },
     test_type: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     results: {
-      type: Sequelize.TEXT
+      type: DataTypes.TEXT
     }
   });
-  // return Example;
-// };
+  return SurveyResults;
+};
 
-Table.sync();
+// Table.sync();
 
-module.exports = Table;
+// module.exports = Table;
 
