@@ -1,19 +1,2 @@
 DROP DATABASE IF EXISTS personality_test;
 CREATE DATABASE personality_test;
-
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
-
--- 
-USE personality_test;
-
-CREATE TABLE SurveyResults (
-    id INTEGER NOT NULL AUTO_INCREMENT,
-    name_ VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    test_type VARCHAR(255) NOT NULL,
-    results VARCHAR(255) NOT NULL,
-    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
-);
--- 
