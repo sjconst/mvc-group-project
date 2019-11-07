@@ -1,11 +1,12 @@
-require("dotenv").config();
-const config = {
+
+let config = {
   development: {
     username: "root",
     password: process.env.DB_PASS,
     database: "personality_test",
-    host: "localhost",
-    dialect: "mysql"
+    host: "127.0.0.1",
+    dialect: "mysql",
+    driver: "mysql"
   },
   test: {
     username: "root",
@@ -20,4 +21,4 @@ const config = {
     dialect: "mysql"
   }
 }
-module.exports = config;
+ module.exports = config;
