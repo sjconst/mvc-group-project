@@ -3,22 +3,31 @@ const { SurveyResults } = require("../models");
 module.exports = function(app) {
   // Get all tests
   app.get("/api/tests", (req, res) => {
-    SurveyResults.findAll({}).then(data => res.json(data));
+    SurveyResults.findAll({
+      where: {
+        results: {
+          [Op.ne]: null
+        }
+      }
+    }).then(data => res.json(data));
   });
   //Get tests by type  
   app.get("/api/type/:type", (req, res) => {
     SurveyResults.findAll({
       where: {       
-        type: req.params.type
+        test_type: req.params.type
       }
     }).then( data => res.json(data))
   });
   // Create a new test
-  app.post("/api/tests", (req, res) => {
-    let result = req.body.personalities.myers_briggs_type;
-    let name = req.body.first_name;
-    let overview = req.body.content.overview;
-    SurveyResults.create(req.body).then(data => res.json(data));
+  app.post("/api/tests", (req, res) => { 
+    console.log(req.body);
+    let name = req.body.name;
+    let email = req.body.email;
+    SurveyResults.create({
+      name_: name,
+      email: email
+    }).then(data => res.json(data));
   });
   // Delete an example by id
   app.delete("/api/tests/:id", (req, res) => {
