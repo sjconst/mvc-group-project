@@ -5,16 +5,31 @@
         <div class="row">
           <h1 class="center-align">{{msg}}</h1>
           <form class="clearfix rform" id="surveyForm" id="rform">
-            <div class="input-field form-group col s4 validate">
+            <div class="input-field form-group col s3 validate">
               <label for="name">First Name</label>
               <input type="text" id="name" class="form-control" aria-describedby="name" placeholder="John" data-parsley-length="[2, 20]" required="true" data-parsley-group="block1">
             </div>
-            <div class="input-field form-group col s4 validate">
+            <div class="input-field form-group col s3 validate">
               <label for="email">Email</label>
               <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true" data-parsley-group="block1">
             </div>
-            <div class="col s4">
+            <div class="input-field form-group col s3">
+              <label for="group">Group Name</label>
+              <input type="text" class="form-control" id="group" aria-describedby="group" placeholder="Ms. Jane's Class">
+            </div>
+            <div class="col s3">
               <img class="survey-button-2" src="https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png"/>
+            </div>
+          </form>
+        </div>
+        <!-- Group Name drop down -->
+        <!-- NEEDS to autopopulate with all unique group names in DB -->
+        <div class="row">
+          <form action="GET">          
+            <div class="input-field col s12 m3">
+              <select id="group-select">    
+              </select>
+              <label>Group Name</label>
             </div>
           </form>
         </div>

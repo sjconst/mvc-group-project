@@ -21,10 +21,26 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 30]
       }
     },
-    test_type: {
+    group: {
+      type: DataTypes.STRING,
+      allowNull: false,     
+    },
+    disc_type: {
       type: DataTypes.STRING
     },
-    results: {
+    discResults: {
+      type: DataTypes.TEXT
+    },
+    myers: {
+      type: DataTypes.STRING
+    },
+    myersResults: {
+      type: DataTypes.TEXT
+    },
+    enneagram_type: {
+      type: DataTypes.STRING
+    },
+    enneagramResults: {
       type: DataTypes.TEXT
     }
   });
