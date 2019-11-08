@@ -4,17 +4,17 @@
       <div class="col s12">
         <div class="row">
           <h1 class="center-align">{{msg}}</h1>
-          <form class="clearfix" action="POST">
+          <form class="clearfix rform" id="rform" action="POST">
             <div class="input-field form-group col s4 validate">
               <label for="name">Name</label>
-              <input type="text" id="name" class="form-control" aria-describedby="name" placeholder="John Smith">
+              <input type="text" id="name" class="form-control" aria-describedby="name" placeholder="John Smith" data-parsley-length="[2, 20]" required="true" data-parsley-group="block1">
             </div>
             <div class="input-field form-group col s4 validate">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com">
+              <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true" data-parsley-group="block1">
             </div>
             <div class="col s4">
-              <a alt="Take Personality Test" target="_blank" href="https://app.crystalknows.com/personality-test?api_customer_id=25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=[USER_EMAIL_HERE]"><img class="survey-button-2" src=https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png /></a>
+              <a alt="Take Personality Test" target="_blank" href="https://app.crystalknows.com/personality-test?api_customer_id=25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=[USER_EMAIL_HERE]"><img class="survey-button-2 validate sbmt" type="submit" value="submit" id="test-btn" src=https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png /></a>
             </div>
           </form>
         </div>
