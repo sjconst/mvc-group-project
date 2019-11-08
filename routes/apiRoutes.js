@@ -19,14 +19,20 @@ module.exports = function(app) {
       }
     }).then( data => res.json(data))
   });
+  //Get groups
+  app.get("/api/groups", (req, res) => {
+    SurveyResults.findAll({ attributes: ["group"]}).then( data => res.json(data))
+  });
   // Create a new test
   app.post("/api/tests", (req, res) => { 
     console.log(req.body);
     let name = req.body.name;
     let email = req.body.email;
+    let group = req.body.group;
     SurveyResults.create({
       name_: name,
-      email: email
+      email: email,
+      group: group
     }).then(data => res.json(data));
   });
   // Delete an example by id
