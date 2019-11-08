@@ -13,41 +13,11 @@
 
 <body>
 
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo left">Example Title</a>
-        <ul class="right">
-          <li><a href="#!">Profiles</a></li>
-          <li><a class="dropdown-trigger" href="#!" data-target="article-dropdown">Articles<i class="material-icons right">arrow_drop_down</i></a></li>
-          <li><a class="dropdown-trigger" href="#!" data-target="personality-dropdown">Personality Types<i class="material-icons right">arrow_drop_down</i></a></li>
-          {{!-- <li><a class="waves-effect waves-light btn-large">Take Survey</a></li> --}}
-          <li><a target="_blank" class="btn" href="https://www.crystalknows.com/personality-test">Take Personality Test</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <!-- Article Drop Down -->
-  <ul id="article-dropdown" class="dropdown-content">
-    <li><a href="#!">One</a></li>
-    <li><a href="#!">Two</a></li>
-    <li><a href="#!">Three</a></li>
-    <li><a href="#!">Four</a></li>
-  </ul>
-
-  <!-- Personality Drop Down -->
-  <ul id="personality-dropdown" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li><a href="#!">three</a></li>
-    <li><a href="#!">four</a></li>
-  </ul>
-        
-
+  {{>header}}
   <main>
     {{{body}}}
   </main>
+  {{>footer}}
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Compiled and minified JavaScript -->
