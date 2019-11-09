@@ -3,13 +3,7 @@ const { SurveyResults } = require("../models");
 module.exports = function(app) {
   // Get all tests
   app.get("/api/tests", (req, res) => {
-    SurveyResults.findAll({
-      where: {
-        results: {
-          [Op.ne]: null
-        }
-      }
-    }).then(data => res.json(data));
+    SurveyResults.findAll({}).then(data => res.json(data));
   });
   app.get("/api/group/:group", (req, res) => {
     let group = req.params.group;
@@ -32,15 +26,15 @@ module.exports = function(app) {
     SurveyResults.findAll({ attributes: ["group"]}).then( data => res.json(data))
   });
   // Create a new test
-  app.post("/api/tests", (req, res) => { 
-    console.log(req.body);
+  app.post("/api/user", (req, res) => {   
     let name = req.body.name;
     let email = req.body.email;
     let group = req.body.group;
+    console.log("NAME IS " + name, email, group);
     SurveyResults.create({
       name_: name,
       email: email,
-      group: group
+      group_: group
     }).then(data => res.json(data));
   });
   // Delete an example by id
