@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     SurveyResults.findAll({}).then(data => {
       res.render("index", {
-        msg: "Free Personality Test",
+        msg: "Discover and Match Personality Types!",
         groups: data
       });
     });

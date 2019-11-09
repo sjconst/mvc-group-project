@@ -125,6 +125,12 @@ $('.sidenav').sidenav();
 // Modal
 $('.modal').modal();
 
+// Carousel
+$('.carousel.carousel-slider').carousel({
+  fullWidth: true,
+  indicators: true
+});
+
 
 
 //GRAVEYARD

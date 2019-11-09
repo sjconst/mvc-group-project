@@ -16,5 +16,10 @@ $(document.ready(function() {
 
     // Modal
     $('.modal').modal();
+
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true
+    });
 }))
 
