@@ -1,6 +1,6 @@
 const { SurveyResults } = require("../models");
 
-module.exports = function(app) { 
+module.exports = function(app) {
   app.get("/Profiles", (req, res) => {
     SurveyResults.findAll({   
       attributes: ["group_"]  
