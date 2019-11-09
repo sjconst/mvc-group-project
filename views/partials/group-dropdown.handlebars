@@ -1,11 +1,14 @@
 <!-- Group Name drop down -->
 <!-- NEEDS to autopopulate with all unique group names in DB -->
-<div class="row">
-    <form action="GET">          
-    <div class="input-field col s12 m3">
-        <select id="group-select">    
-        </select>
-        <label>Group Name</label>
+<form action="GET">
+    <div class="input-field col s12">
+        <select id="energy-select">
+            <option value="" disabled selected>Not Selected</option>
+                {{#each groups}}
+                    <option value="{{this.id}}">{{this.group_}}</option>
+                {{/each}}
+            </select>
+        <label>Pick a Group</label>
     </div>
-    </form>
-</div>
+</form>
+

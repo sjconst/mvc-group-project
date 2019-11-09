@@ -1,6 +1,3 @@
-// var Sequelize = require("sequelize");
-// var sequelize = require("../config/config");
-
 module.exports = function(sequelize, DataTypes) {
   var SurveyResults = sequelize.define("SurveyResults", {
     name_: {
@@ -38,7 +35,6 @@ module.exports = function(sequelize, DataTypes) {
   return SurveyResults;
 };
 
-// Table.sync();
 
-// module.exports = Table;
+
 

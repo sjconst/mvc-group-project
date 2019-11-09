@@ -6,7 +6,8 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     SurveyResults.findAll({}).then(data => {
       res.render("index", {
-        examples: data
+        msg: "Free Personality Test",
+        groups: data
       });
     });
   });
