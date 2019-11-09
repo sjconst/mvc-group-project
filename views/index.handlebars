@@ -5,7 +5,7 @@
               <div class="col s12">
                   <div class="row">
                       <br><br>
-                      <h2 class="center-align">Discover your ideal personality!</h2>
+                      <h2 class="center-align">{{msg}}</h2>
                       <form class="clearfix rform" id="rForm surveyForm">
 
                         <div class="container">
@@ -20,9 +20,13 @@
                           </div>
 
                           <div class="input-field form-group col s12 validate">
-                            <label for="group">Group Name</label>
+                            <label for="group">Create a Group Name</label>
                             <input type="text" class="form-control" id="group" aria-describedby="group" placeholder="Ms. Jane's Class">
                           </div>
+
+                          <h5 class="center-align">Or</h5>
+
+                          {{> group-dropdown}}
                         </div>
                         
                         <div class="col s12 center">

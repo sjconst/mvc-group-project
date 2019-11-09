@@ -7,7 +7,7 @@ module.exports = function(app) {
     SurveyResults.findAll({}).then(data => {
       res.render("index", {
         msg: "Free Personality Test",
-        examples: data
+        groups: data
       });
     });
   });
