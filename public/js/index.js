@@ -71,5 +71,10 @@ $('.parallax').parallax();
 // Sidenav
 $('.sidenav').sidenav();
 // Modal
-$('.modal').modal();        
+$('.modal').modal();
+// Carousel
+$('.carousel.carousel-slider').carousel({
+  fullWidth: true,
+  indicators: true
+});
 });

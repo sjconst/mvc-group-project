@@ -52,7 +52,7 @@ label {
     box-shadow: 0 1px 0 0 #000 !important;
 }
 input[type="text"]::placeholder, input[type="email"]::placeholder { 
-    color: #001;
+    color: rgb(116, 116, 116);
 } 
   
 /* Survey Button */

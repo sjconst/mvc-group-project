@@ -19,17 +19,16 @@
                             <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true" data-parsley-group="block1">
                           </div>
 
-                          <div class="input-field form-group col s12 validate">
-                            <label for="group">Create a Group Name</label>
-                            <input type="text" class="form-control" id="group" aria-describedby="group" placeholder="Ms. Jane's Class">
-                          </div>
+                          {{> group-dropdown}}
 
                           <h5 class="center-align">Or</h5>
 
-                          {{> group-dropdown}}
+                          <div class="input-field form-group col s12 validate">
+                            <label for="group">Create a new Group</label>
+                            <input type="text" class="form-control" id="group" aria-describedby="group" placeholder="Ms. Jane's Class">
+                          </div>                          
 
-                        </div>
-                       
+                        </div>                       
                         
                         <div class="col s12 center">
                           <img class="survey-button-2" src="https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png"/>
@@ -73,6 +72,31 @@
 
             <p class="light">Clicking on the "Profiles" tab in the navigation bar will allow you to find profiles of all users that have taken the Crystal Personality test through this website.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carousel -->
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="carousel carousel-slider center">
+        <div class="carousel-fixed-item center">
+          <a class="btn waves-effect white grey-text darken-text-2" href="#!">View Profiles</a>
+        </div>
+        <div class="carousel-item red white-text">
+          <h2>First Panel</h2>
+        </div>
+        <div class="carousel-item amber white-text">
+          <h2>Second Panel</h2>
+        </div>
+        <div class="carousel-item green white-text">
+          <h2>Third Panel</h2>
+        </div>
+        <div class="carousel-item blue white-text">
+          <h2>Fourth Panel</h2>
         </div>
       </div>
     </div>

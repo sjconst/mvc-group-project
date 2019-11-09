@@ -15,9 +15,10 @@ module.exports = function(app) {
       attributes: ["group_"]  
     }).then(data => {     
       res.render("index", {
-        data: data
-      })
-    })
+        msg: "Discover and Match Personality Types!",
+        groups: data
+      });
+    });
   });
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => {
