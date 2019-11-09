@@ -1,0 +1,17 @@
+<!-- Personality Type drop down -->
+<div class="row">
+    {{> form-type}}
+</div>
+
+{{!-- Results Section --}}
+<div class="row">
+    <h4>Profiles</h4>
+    <ul id="example-list" class="list-group">
+    {{#each examples}}
+    <li data-id="{{this.id}}" class="list-group-item">
+        <a href="example/{{this.id}}">{{this.text}}</a>
+        <button class="btn right result">Result</button>
+    </li>
+    {{/each}}
+    </ul>
+</div>

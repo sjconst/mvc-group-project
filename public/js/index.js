@@ -1,7 +1,4 @@
 $(document).ready(function() {
-//Form select materialize
-$('.modal').modal();
-$('.dropdown-trigger').dropdown();
 // Get references to page elements
 const $submitBtn = $("#submit");
 const $name = $("#name");
@@ -47,12 +44,14 @@ const API = {
 };
 //On load, populate available groups to dropdown
 loadGroups();
+
 //Function for creating group options
 function createGroupOption(groupData){  
   let newOption = $(`<option value=${groupData.group}>${groupData.group}</option>`);  
   console.log(newOption);
   return newOption;
 }
+
 //Get Groups function
 function loadGroups() {  
   //let data = API.getGroups();
@@ -66,11 +65,13 @@ function loadGroups() {
     renderGroupList(allGroups);
   })  
 };
+
 //Render list of groups to the page
 function renderGroupList(allGroups){
   console.log(`<option value="" disabled selected>Group</option>${allGroups}`)
   $groupSelect.html(`<option value="" disabled selected>Group</option>${allGroups}`)
 }
+
 // handleOpenSurvey
 // Get name and email from form and send to personality test API
 const handleOpenSurvey = event => {
@@ -80,7 +81,7 @@ const handleOpenSurvey = event => {
   let groupInput = $group.val().trim();
   let encodedEmail = encodeURIComponent(email) 
   if (!(nameInput && emailInput && groupInput)) {
-    alert("You must enter a name, email, and group!");
+    M.toast({html: 'You must enter a name, email, and group!'})
     return;
   } else {    
    window.open(`https://app.crystalknows.com/personality-test?25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=${encodedEmail}`, '_blank');
@@ -89,6 +90,7 @@ const handleOpenSurvey = event => {
    API.saveUser(nameInput, emailInput, groupInput).then(data => console.log("Data from front end: " + data));   
   }  
 };
+
 const handleFormSubmit = event => {
   event.preventDefault();
   let energy = $energy.charAt(0);
@@ -100,11 +102,28 @@ const handleFormSubmit = event => {
   //   console.log("Crystal" + data);
   // })
 }
+
 // Add event listeners to the submit and delete buttons
 $surveyBtn.on("click", handleOpenSurvey);
 $submitBtn.on("click", handleFormSubmit);
 
+// Dropdown Trigger 
+$(".dropdown-trigger").dropdown({
+  coverTrigger: false,
+  hover: true
+});
 
+// Form Select
+$('select').formSelect();
+
+// Parallax
+$('.parallax').parallax();
+
+// Sidenav
+$('.sidenav').sidenav();
+
+// Modal
+$('.modal').modal();
 
 
 
@@ -122,11 +141,7 @@ $submitBtn.on("click", handleFormSubmit);
 
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-// Dropdown Trigger 
-// $(".dropdown-trigger").dropdown({
-//   coverTrigger: false,
-//   hover: true
-// });
+
 
         
 });
