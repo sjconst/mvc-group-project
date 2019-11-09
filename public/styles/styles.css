@@ -1,47 +1,67 @@
+/* Global */
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
+#home {
+  background: #eeeeee;
+}
+
 main {
   flex: 1 0 auto;
 }
 
+#icon-section {
+  background: #769fb6;
+}
+
+/* Links */
 a {
   text-decoration: none;
   color: white;
 }
-
 a:visited {
   color: white;
 }
 
+/* Navbar */
+nav, .page-footer {
+  background: #188fa7;
+}
 .navbar {
   height: 80px;
 }
-
-main > .container {
-  padding-top: 100px;
-}
-
-label {
-  font-size: 1rem!important;
-}
-
 .list-group-item {
   line-height: 2.5;
 }
-
 .dropdown-trigger:focus {
   outline: 0;
 }
 
+/* input field */
+label {
+  font-size: 1rem!important;
+}
+.input-field input[type=text]:focus + label, .input-field input[type=email]:focus + label {
+    color: #000!important;
+}
+.input-field input[type=text]:focus, .input-field input[type=email]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+input[type="text"]::placeholder, input[type="email"]::placeholder { 
+    color: #001;
+} 
+  
+/* Survey Button */
 .survey-button {
   width: 200px;
   transform: translateY(12px);
 }
-
 .survey-button-2 {
   width: 300px;
+  cursor: pointer;
 }
+  

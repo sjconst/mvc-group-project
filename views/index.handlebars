@@ -1,93 +1,72 @@
 <div id="home">
   <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <div class="row">
-          <h1 class="center-align">{{msg}}</h1>
-          <form class="clearfix rform" id="surveyForm" id="rform">
-            <div class="input-field form-group col s3 validate">
-              <label for="name">First Name</label>
-              <input type="text" id="name" class="form-control" aria-describedby="name" placeholder="John" data-parsley-length="[2, 20]" required="true" data-parsley-group="block1">
-            </div>
-            <div class="input-field form-group col s3 validate">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true" data-parsley-group="block1">
-            </div>
-            <div class="input-field form-group col s3">
-              <label for="group">Group Name</label>
-              <input type="text" class="form-control" id="group" aria-describedby="group" placeholder="Ms. Jane's Class">
-            </div>
-            <div class="col s3">
-              <img class="survey-button-2" src="https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png"/>
-            </div>
-          </form>
+      <div class="section">
+          <div class="row">
+              <div class="col s12">
+                  <div class="row">
+                      <br><br>
+                      <h2 class="center-align">Discover your ideal personality!</h2>
+                      <form class="clearfix rform" id="rForm surveyForm">
+
+                        <div class="container">
+                          <div class="input-field form-group col s12 m6 validate">
+                            <label for="name">First Name</label>
+                            <input type="text" id="name" class="form-control" aria-describedby="name" data-parsley-length="[2, 20]" placeholder="John" required="true" data-parsley-group="block1">
+                          </div>
+
+                          <div class="input-field form-group col s12 m6 validate">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true" data-parsley-group="block1">
+                          </div>
+
+                          <div class="input-field form-group col s12 validate">
+                            <label for="group">Group Name</label>
+                            <input type="text" class="form-control" id="group" aria-describedby="group" placeholder="Ms. Jane's Class">
+                          </div>
+                        </div>
+                        
+                        <div class="col s12 center">
+                          <img class="survey-button-2" src="https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png"/>
+                        </div>
+                      </form>
+                      <br><br>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!--  Icon Section  -->
+<div id="icon-section">
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Based on Meyers-Briggs</h5>
+
+            <p class="light">The Myers–Briggs Type Indicator is an introspective self-report questionnaire indicating differing psychological preferences in how people perceive the world and make decisions.</p>
+          </div>
         </div>
-        <!-- Group Name drop down -->
-        <!-- NEEDS to autopopulate with all unique group names in DB -->
-        <div class="row">
-          <form action="GET">          
-            <div class="input-field col s12 m3">
-              <select id="group-select">    
-              </select>
-              <label>Group Name</label>
-            </div>
-          </form>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">group</i></h2>
+            <h5 class="center">Free to Use</h5>
+
+            <p class="light">Crystal offers a free personality test to help you discover how to communicate more effectively. The only thing we need from you is to enter your name and email.</p>
+          </div>
         </div>
-        <!-- Personality Type drop down -->
-        <div class="row">
-          <form action="GET">
-            <!-- Energy -->
-            <div class="input-field col s12 m3">
-              <select id="energy-select">
-                <option value="" disabled selected>Choose an option</option>
-                <option value="1">Introvert</option>
-                <option value="2">Extrovert</option>
-              </select>
-              <label>Energy</label>
-            </div>
-            <!-- Information -->
-            <div class="input-field col s12 m3">
-              <select id="information-select">
-                <option value="" disabled selected>Choose an option</option>
-                <option value="3">Thinking</option>
-                <option value="4">Feeling</option>
-              </select>
-              <label>Information</label>
-            </div>
-            <!-- Decisions -->
-            <div class="input-field col s12 m3">
-              <select id="decisions-select">
-                <option value="" disabled selected>Choose an option</option>
-                <option value="5">Intuition</option>
-                <option value="6">Sensing</option>
-              </select>
-              <label>Decisions</label>
-            </div>
-            <!-- Organization -->
-            <div class="input-field col s12 m3">
-              <select id="organization-select">
-                <option value="" disabled selected>Choose an option</option>
-                <option value="7">Judging</option>
-                <option value="8">Perceiving</option>
-              </select>
-              <label>Organization</label>
-            </div>
-            <div class="center">
-              <button id="submit" class="btn display-results-submit">Display Results</button>
-            </div>
-          </form>
-        </div>
-        <div class="divider"></div>
-        <div class="row">
-          <h4>Profiles</h4>
-          <ul id="example-list" class="list-group">
-            {{#each examples}}
-            <li data-id="{{this.id}}" class="list-group-item">
-              <a href="example/{{this.id}}">{{this.text}}</a>
-              <button class="btn right result">Result</button>
-            </li>
-            {{/each}}
-          </ul>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">settings</i></h2>
+            <h5 class="center">View Other Profiles</h5>
+
+            <p class="light">Clicking on the "Profiles" tab in the navigation bar will allow you to find profiles of all users that have taken the Crystal Personality test through this website.</p>
+          </div>
         </div>
       </div>
     </div>

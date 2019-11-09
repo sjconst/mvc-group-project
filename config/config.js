@@ -4,13 +4,13 @@ let config = {
     username: "root",
     password: process.env.DB_PASS,
     database: "personality_test",
-    host: "127.0.0.1",
+    host: "localhost",
     dialect: "mysql",
     driver: "mysql"
   },
   test: {
     username: "root",
-    password: null,
+    password: process.removeListener.DB_PASS,
     database: "testdb",
     host: "localhost",
     dialect: "mysql",
