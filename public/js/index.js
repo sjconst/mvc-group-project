@@ -20,7 +20,7 @@ const API = {
     return $.post("api/tests", {
               name: name,
               email: email,
-              group: group
+              group_: group
             });
   },
   getTests: () => {
@@ -28,9 +28,6 @@ const API = {
   },
   getGroups: () => {
     return $.get("api/groups");
-  },
-  getByType: (letter1, letter2, letter3, letter4) => {
-    return $.get(`api/type/${letter1}${letter2}${letter3}${letter4}`);
   },
   getFromCrystal: (encodedEmail) => {
     return $.get(`https://api.crystalknows.com/v1/profiles/find?token=d18a5972dc9f0d4460748e825941f8c6&email=${encodedEmail}`);
@@ -43,7 +40,7 @@ const API = {
   } 
 };
 //On load, populate available groups to dropdown
-loadGroups();
+//loadGroups();
 
 //Function for creating group options
 function createGroupOption(groupData){  
@@ -51,7 +48,6 @@ function createGroupOption(groupData){
   console.log(newOption);
   return newOption;
 }
-
 //Get Groups function
 function loadGroups() {  
   //let data = API.getGroups();

@@ -6,11 +6,19 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     SurveyResults.findAll({}).then(data => {
       res.render("index", {
-        msg: "Free Personality Test",
         examples: data
       });
     });
   });
+  app.get("/Profiles", (req, res) => {
+    SurveyResults.findAll({   
+      attributes: ["group_"]  
+    }).then(data => {     
+      res.render("profiles", {
+        data: data
+      })
+    })
+  })
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => {

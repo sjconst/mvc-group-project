@@ -11,6 +11,14 @@ module.exports = function(app) {
       }
     }).then(data => res.json(data));
   });
+  app.get("/api/group/:group", (req, res) => {
+    let group = req.params.group;
+    SurveyResults.findAll({
+      where: {
+        group_: group
+      }
+    }).then(data => res.json(data));
+  });
   //Get tests by type  
   app.get("/api/type/:type", (req, res) => {
     SurveyResults.findAll({
