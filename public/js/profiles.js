@@ -14,6 +14,9 @@ const profilesAPI = {
             resultEnn: resultEnn
         })
     },
+    getTests: () => {
+        return $.get("/api/tests");
+    },
     deleteTest: id => {
         return $.ajax({
         url: `/api/tests/${id}`,
@@ -22,15 +25,7 @@ const profilesAPI = {
     } 
 };
 //Functions for creating new rows for table
-function createRow(data) {
-    //discResults: "C"
-    // email: "test@test.com"
-    // enneagramResults: null
-    // group_: "Bootcamp"
-    // id: 1
-    // myersResults: null
-    // name_: "Stephanie"
-    //email link = 
+function createRow(data) {   
     let newTable = "";
     const notAvail ="Not available";
     for(var i = 0; i < data.length; i++){
@@ -74,7 +69,14 @@ $('#group-display').change(() => {
                     enn = "not available";
                 }
                 profilesAPI.postResult(el.email, disc, myer, enn)
-                .then(data => console.log(data))
+                .then(data => {                
+                    //Pull from database again, add <tr> to table for each row of data   
+                    profilesAPI.getTests()                    
+                    .then(data => {                       
+                        console.log(data)
+                        //createRow(data);
+                    })                    
+                })
             })
             .fail(err => {
                 console.log("User hasn't set up Crystal profile");
@@ -87,13 +89,6 @@ $('#group-display').change(() => {
             
         )
         
-        
-         
-
-        //Pull from database again, add <tr> to table for each row of data
-     
-        //createRow(data);
-    }) 
-        
+    })         
 });
 });

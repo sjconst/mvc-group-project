@@ -55,7 +55,7 @@ module.exports = function(app) {
       where: {
         email: email
       }
-    }).then(data => console.log("Results added"))
+    }).then(data => res.json(data))
     .catch(err => {
       res.send({error: `Something failed: ${err}`})
     });
