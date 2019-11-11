@@ -1,9 +1,8 @@
 <!-- Group Name drop down -->
-<!-- NEEDS to autopopulate with all unique group names in DB -->
 <form action="GET">
     <div class="input-field col s12">
         <select id="dropdown-home">
-            <option value="" disabled selected>Not Selected</option>
+            <option value="" selected>Not Selected</option>
                 {{#each groups}}
                     <option value="{{this.group_}}">{{this.group_}}</option>
                 {{/each}}

@@ -6,30 +6,24 @@
                   <div class="row">
                       <br><br>
                       <h2 class="center-align">{{msg}}</h2>
-                      <form class="clearfix rform" id="rForm surveyForm">
-
+                      <h5 class="center-align">Take one or several personality tests and save it to a group. Share the app with your students or friends to see how compatible your school is!</h5>
+                      <form class="clearfix rform" id="surveyForm">
                         <div class="container">
                           <div class="input-field form-group col s12 m6 validate">
                             <label for="name">First Name</label>
                             <input type="text" id="name" class="form-control" aria-describedby="name" data-parsley-length="[2, 20]" placeholder="John" required="true" data-parsley-group="block1">
                           </div>
-
                           <div class="input-field form-group col s12 m6 validate">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true" data-parsley-group="block1">
                           </div>
-
                           {{> group-dropdown}}
-
                           <h5 class="center-align">Don't see your group? Create one below! </h5>
-
                           <div class="input-field form-group col s12 validate">
                             <label for="group">Create a new Group</label>
                             <input type="text" class="form-control" id="group" aria-describedby="group" placeholder="Ms. Jane's Class">
-                          </div>                          
-
-                        </div>                       
-                        
+                          </div>     
+                        </div>    
                         <div class="col s12 center">
                           <img class="survey-button-2" src="https://cdn2.hubspot.net/hubfs/1716276/API/take_personality_test.png"/>
                         </div>
@@ -50,27 +44,28 @@
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Based on Meyers-Briggs</h5>
-
-            <p class="light">The Myers–Briggs Type Indicator is an introspective self-report questionnaire indicating differing psychological preferences in how people perceive the world and make decisions.</p>
+            <h5 class="center">Three Personality Test Options</h5>
+            <ul class="browser-default light">
+              <li>DISC: a more flexible, adaptive assessment and tools to understand and communicate more effectively </li>
+              <li>Myers-Briggs: the classic introspective self-report questionnaire indicating differing psychological preferences</li>
+              <li>Enneagram: focuses on deeply-rooted motivations, rather than grouping people by actions. </li>
+            </ul>            
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center"><i class="material-icons">group</i></h2>
-            <h5 class="center">Free to Use</h5>
-
-            <p class="light">Crystal offers a free personality test to help you discover how to communicate more effectively. The only thing we need from you is to enter your name and email.</p>
+            <h5 class="center">How it Works</h5>
+            <p class="light">Crystal Knows offers free personality tests to help you discover how to communicate more effectively. Imply fill in the information above and follow the instructions on the page that opens to register and take tests. Results are automatically pulled into this app when you select your group in "get my group's info" tab above.</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center"><i class="material-icons">settings</i></h2>
-            <h5 class="center">View Other Profiles</h5>
-
-            <p class="light">Clicking on the "Profiles" tab in the navigation bar will allow you to find profiles of all users that have taken the Crystal Personality test through this website.</p>
+            <h5 class="center">View Your Group's Info</h5>
+            <p class="light">Click on the "Get my group's info" tab in the navigation bar to find profiles of users in your group.</p>
           </div>
         </div>
       </div>

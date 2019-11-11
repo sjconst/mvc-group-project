@@ -3,7 +3,8 @@ const { SurveyResults } = require("../models");
 module.exports = function(app) {
   app.get("/Profiles", (req, res) => {
     SurveyResults.findAll({   
-      attributes: ["group_"]  
+      attributes: ["group_"],
+      group: "group_" 
     }).then(data => {     
       res.render("profiles", {
         data: data
@@ -12,7 +13,8 @@ module.exports = function(app) {
   });
   app.get("/", (req, res) => {
     SurveyResults.findAll({   
-      attributes: ["group_"]  
+      attributes: ["group_"],
+      group: "group_"  
     }).then(data => {     
       res.render("index", {
         msg: "Discover and Match Personality Types!",

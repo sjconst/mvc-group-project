@@ -29,13 +29,15 @@ module.exports = function(app) {
   app.post("/api/user", (req, res) => {   
     let name = req.body.name;
     let email = req.body.email;
-    let group = req.body.group;
-    console.log("NAME IS " + name, email, group);
+    let group = req.body.group;   
     SurveyResults.create({
       name_: name,
       email: email,
       group_: group
-    }).then(data => res.json(data));
+    }).then(data => res.json(data))
+    .catch(err => {
+      res.send({error: `Something failed: ${err}`})
+    });
   });
   // Delete an example by id
   app.delete("/api/tests/:id", (req, res) => {
