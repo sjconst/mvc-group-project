@@ -5,8 +5,10 @@ module.exports = function(app) {
   app.get("/api/tests", (req, res) => {
     SurveyResults.findAll({}).then(data => res.json(data));
   });
+  //Get all tests by group
   app.get("/api/group/:group", (req, res) => {
     let group = req.params.group;
+    console.log(group);
     SurveyResults.findAll({
       where: {
         group_: group

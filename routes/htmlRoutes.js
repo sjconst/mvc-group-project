@@ -17,7 +17,7 @@ module.exports = function(app) {
       group: "group_"  
     }).then(data => {     
       res.render("index", {
-        msg: "Discover and Match Personality Types!",
+        msg: "Discover and Match Personality Types",
         groups: data
       });
     });
