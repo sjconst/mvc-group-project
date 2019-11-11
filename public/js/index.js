@@ -5,7 +5,7 @@ const $email = $("#email");
 const $surveyBtn = $(".survey-button-2");
 const $surveyForm = $("#surveyForm");
 const $group = $("#group");
-const $groupSelect = $("#group-select");
+const $groupSelect = $("#dropdown-home");
 //BUG: can't get it to read the process.env here;
 //const token = process.env.Crystal_Token;
 const token = "d18a5972dc9f0d4460748e825941f8c6";
@@ -42,11 +42,11 @@ const handleOpenSurvey = event => {
   let emailInput = $email.val().trim(); 
   let group = ""; 
   let encodedEmail = encodeURIComponent(emailInput); 
-  if($group){
+  if($group.val() != ""){   
     group = $group.val().trim();
-  } else {
+  } else {    
     group = $groupSelect.val().trim();
-  };   
+  };     
   if (!(nameInput && emailInput && group)) {
     M.toast({html: 'You must enter a name, email, and group!'})
     return;
