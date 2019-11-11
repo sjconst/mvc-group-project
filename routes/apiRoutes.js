@@ -21,7 +21,7 @@ module.exports = function(app) {
   });
   //Get groups
   app.get("/api/groups", (req, res) => {
-    SurveyResults.findAll({ attributes: ["group"]}).then( data => res.json(data))
+    SurveyResults.findAll({ attributes: ["group_"]}).then( data => res.json(data))
   });
   // Create a new test
   app.post("/api/tests", (req, res) => { 
