@@ -27,7 +27,7 @@ module.exports = function(app) {
   app.get("/api/groups", (req, res) => {
     SurveyResults.findAll({ attributes: ["group"]}).then( data => res.json(data))
   });
-  // Create a new test
+  // Create a new user
   app.post("/api/user", (req, res) => {   
     let name = req.body.name;
     let email = req.body.email;
@@ -41,8 +41,29 @@ module.exports = function(app) {
       res.send({error: `Something failed: ${err}`})
     });
   });
+  // Post user's score to database
+  app.post("/api/result/:email", (req, res) => {   
+    let resultDISC = req.body.resultDISC;
+    let resultMyer = req.body.resultMyer;
+    let resultEnn = req.body.resultEnn;
+    let email = req.params.email;   
+    SurveyResults.update({
+      discResults: resultDISC,
+      myersResults: resultMyer,
+      enneagramResults: resultEnn
+    }, {
+      where: {
+        email: email
+      }
+    }).then(data => console.log("Results added"))
+    .catch(err => {
+      res.send({error: `Something failed: ${err}`})
+    });
+  });
   // Delete an example by id
   app.delete("/api/tests/:id", (req, res) => {
-    SurveyResults.destroy({ where: { id: req.params.id } }).then(data => res.json(data));
+    SurveyResults.destroy({ 
+      where: { id: req.params.id } 
+    }).then(data => res.json(data));
   });
 };
