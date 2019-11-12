@@ -3,6 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var app = express();
+var path = require('path');
 var PORT = process.env.PORT || 3000;
 
 // Middleware
@@ -14,10 +15,19 @@ app.use(express.static("public"));
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    layoutsDir: path.join(__dirname, "views", "layouts"),
+		partialsDir: path.join(__dirname, "views", "partials")
   })
 );
 app.set("view engine", "handlebars");
+//register partials
+exphbs.registerPartial({
+  'header': partial,
+  'footer': partial,
+  'form-type': partial,
+  'group-dropdown': partial
+})
 
 // Routes
 require("./routes/apiRoutes")(app);
