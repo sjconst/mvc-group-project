@@ -27,24 +27,47 @@ const profilesAPI = {
 //Functions for creating new rows for table
 function createRow(data) {   
     let newTable = "";
+    let testName = [];
     const notAvail ="Not available";
     for(var i = 0; i < data.length; i++){
         if (!data.enneagramResults){
             data.enneagramResults = notAvail;
-        } else if(! data.myersResults){
+            testName.push("Enneagram");
+        } else if(!data.myersResults){
             data.myersResults = notAvail;
+            testName.push("Myers-Brigs type-Indicator");
+        } else if (!data.discResults){
+            data.discResults = notAvail;
+            testName.push("Disc");
         }
+        if (testName.length >= 3) {
+            testName = ["Enneagram, Myers-Brigs type-Indicator, and Disc"];
+        }
+        if (testName.length > 1){
+            testName.join(", ");
+        }
+        var emailAddress = data.email;
+        var emailSubject = "Reminder: Take your personality test";
+        //can add link to site once it is deployed
+        var emailBody = `This is a reminder to complete your ${testName} personality test(s).`
+        var myHref= `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`
         let newRow = `
+        <tr>
         <td>${data.name_}<td>
         <td>${data.discResults}<td>
-        <td><button><a href=${myHref}></a></button><td>
+        <td>${data.myersResults}</td> 
+        <td><button><a href=${myHref}>Email Reminder</a></button><td>
+        </tr>
         `
         newTable += newRow;
     }
-    //append to table newTable;        
+    //append to table newTable;
+    let tbody = $("#tbody");
+    tbody.append(newTable);       
 } 
 //Event listeners
 $('#group-display').change(() => {
+    console.log("#group-display changed");
     let groupSelected = $('#group-display').val();     
     //get group's email from database
     profilesAPI.getTestsByGroup(groupSelected).then(data => {
@@ -74,7 +97,7 @@ $('#group-display').change(() => {
                     profilesAPI.getTests()                    
                     .then(data => {                       
                         console.log(data)
-                        //createRow(data);
+                        createRow(data);
                     })                    
                 })
             })
