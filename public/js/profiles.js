@@ -1,4 +1,7 @@
 $(document).ready(function(){
+//DOM elements
+const $tbody = $("#tbody");
+
 //APIs for profiles
 const profilesAPI = {
     getTestsByGroup: groupSelected => {
@@ -26,18 +29,15 @@ const profilesAPI = {
 };
 //Functions for creating new rows for table
 function createRow(data) {   
+    console.log(data);
     let newTable = "";
-    let testName = [];
-    const notAvail ="Not available";
+    let testName = [];    
     for(var i = 0; i < data.length; i++){
-        if (!data.enneagramResults){
-            data.enneagramResults = notAvail;
+        if (data.enneagramResults === "not available"){            
             testName.push("Enneagram");
-        } else if(!data.myersResults){
-            data.myersResults = notAvail;
+        } else if(data.myersResults === "not available"){            
             testName.push("Myers-Brigs type-Indicator");
-        } else if (!data.discResults){
-            data.discResults = notAvail;
+        } else if (data.discResults === "not available"){           
             testName.push("Disc");
         }
         if (testName.length >= 3) {
@@ -46,28 +46,29 @@ function createRow(data) {
         if (testName.length > 1){
             testName.join(", ");
         }
-        var emailAddress = data.email;
-        var emailSubject = "Reminder: Take your personality test";
+        let emailAddress = data.email;
+        const emailSubject = "Reminder: Take your personality test";
         //can add link to site once it is deployed
-        var emailBody = `This is a reminder to complete your ${testName} personality test(s).`
-        var myHref= `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`
+        let emailBody = `This is a reminder to complete your ${testName} personality test(s).`
+        let myHref= `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`
         let newRow = `
         <tr>
-        <td>${data.name_}<td>
-        <td>${data.discResults}<td>
-        <td>${data.myersResults}</td> 
+        <td>${data[i].name_}</td>
+        <td>${data[i].discResults}</td>
+        <td>${data[i].myersResults}</td> 
+        <td>${data[i].enneagramResults}</td> 
         <td><button><a href=${myHref}>Email Reminder</a></button><td>
         </tr>
         `
         newTable += newRow;
     }
-    //append to table newTable;
-    let tbody = $("#tbody");
-    tbody.append(newTable);       
+    //append to table newTable;    
+    $tbody.append(newTable);       
 } 
 //Event listeners
 $('#group-display').change(() => {
     console.log("#group-display changed");
+    $tbody.empty()
     let groupSelected = $('#group-display').val();     
     //get group's email from database
     profilesAPI.getTestsByGroup(groupSelected).then(data => {
@@ -95,8 +96,7 @@ $('#group-display').change(() => {
                 .then(data => {                
                     //Pull from database again, add <tr> to table for each row of data   
                     profilesAPI.getTests()                    
-                    .then(data => {                       
-                        console.log(data)
+                    .then(data => {   
                         createRow(data);
                     })                    
                 })
