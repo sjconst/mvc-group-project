@@ -1,17 +1,27 @@
 const { SurveyResults } = require("../models");
 
 module.exports = function(app) {
-  // Load index page
-  //Note: what are we going to render from the database on the index page? Maybe not all the data, no? Maybe carousel of most recent tests?
-  app.get("/", function(req, res) {
-    SurveyResults.findAll({}).then(data => {
+  app.get("/Profiles", (req, res) => {
+    SurveyResults.findAll({   
+      attributes: ["group_"],
+      group: "group_" 
+    }).then(data => {     
+      res.render("profiles", {
+        data: data
+      })
+    })
+  });
+  app.get("/", (req, res) => {
+    SurveyResults.findAll({   
+      attributes: ["group_"],
+      group: "group_"  
+    }).then(data => {     
       res.render("index", {
-        msg: "Free Personality Test",
+        msg: "Discover and Match Personality Types",
         groups: data
       });
     });
   });
-
   app.get('/DISC', (req, res) => {
     res.render('disc')
   })
@@ -21,7 +31,6 @@ module.exports = function(app) {
   app.get('/myersbriggs', (req, res) => {
     res.render('myersbriggs')
   })
-  
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => {
     res.render("404");

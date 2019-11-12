@@ -1,13 +1,25 @@
-<!-- Personality Type drop down -->
-<div class="row">
-    {{> form-type}}
+ <div class="row" align="center">
+    <div class="grid-example col s12"><span class="flow-text" > Find my group's results</span></div>
+</div>
+<!-- Group drop down -->
+<div class="row" align="center">
+    <form >
+        <div class="input-field col s12 m3">
+            <select id="group-display">
+            <option value="" disabled selected>Find your group</option>
+            {{#each data}}
+            <option value="{{this.group_}}">{{this.group_}}</option>
+            {{/each}}
+            </select>       
+        </div>
+    </form>
 </div>
 
 {{!-- Results Section --}}
 <div class="row">
     <h4>Profiles</h4>
     <ul id="example-list" class="list-group">
-    {{#each examples}}
+    {{#each group}}
     <li data-id="{{this.id}}" class="list-group-item">
         <a href="example/{{this.id}}">{{this.text}}</a>
         <button class="btn right result">Result</button>

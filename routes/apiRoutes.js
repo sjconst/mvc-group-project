@@ -3,11 +3,15 @@ const { SurveyResults } = require("../models");
 module.exports = function(app) {
   // Get all tests
   app.get("/api/tests", (req, res) => {
+    SurveyResults.findAll({}).then(data => res.json(data));
+  });
+  //Get all tests by group
+  app.get("/api/group/:group", (req, res) => {
+    let group = req.params.group;
+    console.log(group);
     SurveyResults.findAll({
       where: {
-        results: {
-          [Op.ne]: null
-        }
+        group_: group
       }
     }).then(data => res.json(data));
   });
@@ -23,20 +27,43 @@ module.exports = function(app) {
   app.get("/api/groups", (req, res) => {
     SurveyResults.findAll({ attributes: ["group_"]}).then( data => res.json(data))
   });
-  // Create a new test
-  app.post("/api/tests", (req, res) => { 
-    console.log(req.body);
+  // Create a new user
+  app.post("/api/user", (req, res) => {   
     let name = req.body.name;
     let email = req.body.email;
-    let group = req.body.group;
+    let group = req.body.group;   
     SurveyResults.create({
       name_: name,
       email: email,
-      group: group
-    }).then(data => res.json(data));
+      group_: group
+    }).then(data => res.json(data))
+    .catch(err => {
+      res.send({error: `Something failed: ${err}`})
+    });
+  });
+  // Post user's score to database
+  app.post("/api/result/:email", (req, res) => {   
+    let resultDISC = req.body.resultDISC;
+    let resultMyer = req.body.resultMyer;
+    let resultEnn = req.body.resultEnn;
+    let email = req.params.email;   
+    SurveyResults.update({
+      discResults: resultDISC,
+      myersResults: resultMyer,
+      enneagramResults: resultEnn
+    }, {
+      where: {
+        email: email
+      }
+    }).then(data => res.json(data))
+    .catch(err => {
+      res.send({error: `Something failed: ${err}`})
+    });
   });
   // Delete an example by id
   app.delete("/api/tests/:id", (req, res) => {
-    SurveyResults.destroy({ where: { id: req.params.id } }).then(data => res.json(data));
+    SurveyResults.destroy({ 
+      where: { id: req.params.id } 
+    }).then(data => res.json(data));
   });
 };
