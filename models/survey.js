@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     group_: {
       type: DataTypes.STRING,
-      allowNull: false,     
+      allowNull: false     
     },
     discResults: {
       type: DataTypes.TEXT

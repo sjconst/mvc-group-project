@@ -17,22 +17,7 @@ const API = {
               email: email,
               group: group
             });
-  },
-  getTests: () => {
-    return $.get("api/tests");
-  },
-  getGroups: () => {
-    return $.get("api/groups");
-  },
-  getFromCrystal: (encodedEmail) => {
-    return $.get(`https://api.crystalknows.com/v1/profiles/find?token=d18a5972dc9f0d4460748e825941f8c6&email=${encodedEmail}`);
-  },
-  deleteTest: id => {
-    return $.ajax({
-      url: `api/tests/${id}`,
-      type: "DELETE"
-    });
-  } 
+  }
 };
 // handleOpenSurvey
 // Get name and email from form and send to personality test API
@@ -42,20 +27,31 @@ const handleOpenSurvey = event => {
   let emailInput = $email.val().trim(); 
   let group = ""; 
   let encodedEmail = encodeURIComponent(emailInput); 
-  if($group.val() != ""){   
-    group = $group.val().trim();
-  } else {    
+  const groupInput = $group.val();   
+  if(groupInput != ""){   
+    group = groupInput.trim();
+  } else if($groupSelect.val()) {  
     group = $groupSelect.val().trim();
   };     
   if (!(nameInput && emailInput && group)) {
-    M.toast({html: 'You must enter a name, email, and group!'})
+    M.toast({html: 'You must enter a name, email, and group!'});
     return;
   }
   window.open(`https://app.crystalknows.com/personality-test?25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=${encodedEmail}`, '_blank');   
-  $surveyForm.trigger("reset");  
-  API.saveUser(nameInput, emailInput, group)
-  .then(data => console.log("User added"))
-  .catch(err => alert("There was an error, try again!"))   
+  try {
+    API.saveUser(nameInput, emailInput, group)
+    .then(data => {      
+      if(data.error){
+        M.toast({html: data.error});
+      } else {
+        console.log("User added");        
+        location.reload(true);
+      }      
+    })
+  }
+  catch(error) {  
+    M.toast({html: error});
+  }    
 }  
 // Add event listeners to the submit and delete buttons
 $surveyBtn.on("click", handleOpenSurvey);
