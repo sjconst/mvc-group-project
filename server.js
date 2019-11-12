@@ -21,14 +21,6 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-//register partials
-exphbs.registerPartial({
-  'header': partial,
-  'footer': partial,
-  'form-type': partial,
-  'group-dropdown': partial
-})
-
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);

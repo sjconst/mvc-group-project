@@ -12,11 +12,19 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/DISC', (req, res) => {
+    res.render('disc')
+  })
+  app.get('/ennegram', (req, res) => {
+    res.render('ennegram')
+  })
+  app.get('/myersbriggs', (req, res) => {
+    res.render('myersbriggs')
+  })
+  
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => {
     res.render("404");
   });
-  app.get("/DISC", (req, res) => {
-    res.render("DISC");
-  });
+
 };
