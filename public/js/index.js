@@ -93,6 +93,6 @@ function validateInput() {
   })
 }
 
-validateInput();
+// validateInput();
 
 });
