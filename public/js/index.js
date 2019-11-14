@@ -73,7 +73,10 @@ $('.carousel.carousel-slider').carousel({
   fullWidth: true,
   indicators: true
 });
-
+//to have image that zooms in/out
+$(document).ready(function(){
+  $('.materialboxed').materialbox();
+});
 // only let the button work if the form is complete and accurate
 function validateInput() {
   var myForm = $('.rform');
