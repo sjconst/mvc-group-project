@@ -3,16 +3,20 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background: #eeeeee;
 }
 
-#home {
-  background: #eeeeee;
+h2 {
+  color: #769fb6;
 }
 
 main {
   flex: 1 0 auto;
 }
 
+.site-logo-name {
+  width: 15rem;
+}
 #icon-section {
   background: #769fb6;
 }
@@ -30,7 +34,8 @@ a:visited {
 nav, .page-footer {
   background: #188fa7;
 }
-.navbar {
+nav {
+  padding-top: 10px;
   height: 80px;
 }
 .list-group-item {
