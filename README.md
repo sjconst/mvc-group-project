@@ -62,10 +62,10 @@ You should be able to enter your name, email, create a new group, and begin taki
 ## Running tests
 in your root project folder, type
 ```
-mocha
+$ mocha
 ```
 It should look something like this
-![mocha test](../../test.png)
+![mocha test](public/images/test.png)
 
 ## Deployment and General Use
 This app can be deployed to a server, such as Heroku or AWS, for online use from different users in different locations. To store data input, you will need to utilize an online database, such as the JAWSDB_URL add-on offered by Heroku.
