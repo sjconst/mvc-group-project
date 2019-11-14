@@ -57,25 +57,30 @@ let INTP = 0;
 let ENTP = 0;
 let ENTJ = 0;
 //Functions for creating new rows for table
-function createRow(data) {   
+function createRow(data) {      
     let newTable = "";
-    let testName = [];       
+    var testName = "";    
     for(var i = 0; i < data.length; i++){
-        if (data.enneagramResults === "not available"){            
-            testName.push("Enneagram");
-        } if (data.myersResults === "not available"){            
-            testName.push("Myers-Brigs type-Indicator");
-        } if (data.discResults === "not available"){           
-            testName.push("Disc");
+        if (data[i].enneagramResults === "not available"){            
+            testName +="Enneagram";
+        } if (data[i].myersResults === "not available"){            
+            testName += "Myers-Brigs type-Indicator";
+        } if (data[i].discResults === "available"){           
+            testName +="Disc";
+        } if (testName.length = 2) {
+            var commaIndex = testName.indexOf(" ");
+            var comma = ","
+            testName = [testName.slice(0, commaIndex), comma, testName.slice(commaIndex)].join();
+            console.log("testName1: ");
+            console.log("testName1: ");
         } if (testName.length >= 3) {
-            testName = ["Enneagram, Myers-Brigs type-Indicator, and Disc"];
-        } if (testName.length > 1){
-            testName.join(", ");
-        }
-        let emailAddress = data.email;
-        const emailSubject = "Reminder:%20Take%20your%20personality%20test";
-        //can add link to site once it is deployed
-        let emailBody = `This is a reminder to complete your ${testName} personality test(s).`
+            testName = "Enneagram, Myers-Brigs Type-Indicator, and Disc";
+        } 
+        testName = encodeURIComponent(testName);
+        console.log(testName);
+        let emailAddress = data[i].email;
+        const emailSubject = encodeURIComponent("Reminder to take your personality test");
+        let emailBody = `This%20is%20a%20reminder%20to%20complete%20your%20${testName}%20personality%20test(s).`;
         let myHref= `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`
         let newRow = `
         <tr>
@@ -83,10 +88,13 @@ function createRow(data) {
         <td>${data[i].discResults}</td>
         <td>${data[i].myersResults}</td> 
         <td>${data[i].enneagramResults}</td> 
-        <td><button><a href=${myHref}>Email Reminder</a></button><td>
+        <td><button class="emailBtn"><a href=${myHref}>Email Reminder</a></button><td>
         </tr>
         `
         newTable += newRow;
+    }
+    //append to table newTable;    
+    $tbody.append(newTable);  
         //Results for graphs
             //DISC            
             switch (data[i].discResults){
@@ -190,9 +198,7 @@ function createRow(data) {
                 default:
                         let text = "no value found";
             }
-    }
-    //append to table newTable;    
-    $tbody.append(newTable);       
+    }        
 }; 
 //Charts code
 function getCharts() { 
