@@ -120,33 +120,6 @@ function createRow(data) {
         }
         //Enneagram
         switch (data[i].enneagramResults){
-<<<<<<< HEAD
-            case 1:
-                enn1++;
-                break;
-            case 2:
-                enn2++;
-                break;
-            case 3:
-                enn3++;
-                break;
-            case 4:
-                enn4++;
-                break;
-            case 5:
-                enn5++;
-                break;
-            case 6:
-                enn6++;
-                break;
-            case 7:
-                enn7++;
-                break;
-            case 8:
-                enn8++;
-                break;
-            case 9:
-=======
             case '1':
                 enn1++;
                 break;
@@ -172,7 +145,6 @@ function createRow(data) {
                 enn8++;
                 break;
             case '9':
->>>>>>> c989faac13fa0768211d3441097bd13cf00ac76b
                 enn9++;
                 break;
             default:
@@ -230,14 +202,10 @@ function createRow(data) {
                 break;
             default:
                     let text = "no value found";
-<<<<<<< HEAD
-        }           
-=======
         } 
     }
     //append to table newTable;    
     $tbody.append(newTable);                
->>>>>>> c989faac13fa0768211d3441097bd13cf00ac76b
 }; 
 //Charts code
 function getCharts() {    
