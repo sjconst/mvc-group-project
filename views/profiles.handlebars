@@ -1,30 +1,33 @@
-<!-- Group drop down -->
-<div class="row" align="center">
-    <form >
-        <div class="input-field col s12 m3">
-            <select id="group-display">
-            <option value="" disabled selected>Find your group</option>
-            {{#each data}}
-            <option value="{{this.group_}}">{{this.group_}}</option>
-            {{/each}}
-            </select>       
-        </div>
-    </form>
-</div>
-{{!-- Results Section --}}
-<div class="table section"> 
-  <h4 class="center">View My Group</h4>
-  <table class="bordered striped centered">
-      <thead>
-          <tr>
-              <th>Name</th>
-              <th>Disc Test</th>
-              <th>Myers-Brigg</th>
-              <th>Enneagram</th>
-              <th>Email Reminder</th>
-          </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-  </table>
+<div class="container">
+    <!-- Group drop down -->
+    <div class="row" align="center">
+        <br><br>
+        <form >
+            <div class="input-field col s12 m4">
+                <select id="group-display">
+                <option value="" disabled selected>Find your group</option>
+                {{#each data}}
+                    <option value="{{this.group_}}">{{this.group_}}</option>
+                {{/each}}
+                </select>       
+            </div>
+        </form>
+    </div>
+    {{!-- Results Section --}}
+    <div class="table section"> 
+        <h4 class="center">View My Group</h4>
+        <table class="bordered striped centered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Disc Test</th>
+                    <th>Myers-Brigg</th>
+                    <th>Enneagram</th>
+                    <th>Email Reminder</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
 </div>
 
