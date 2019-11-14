@@ -29,6 +29,11 @@ a {
 a:visited {
   color: white;
 }
+.gerar-face {
+  margin-right: 10px;
+  transform: translateY(5px);
+  width: 25px;
+}
 
 /* Navbar */
 nav, .page-footer {
@@ -37,6 +42,9 @@ nav, .page-footer {
 nav {
   padding-top: 10px;
   height: 80px;
+}
+.nav-list li a{
+  font-size: 1.2rem;
 }
 .list-group-item {
   line-height: 2.5;
@@ -68,6 +76,33 @@ input[type="text"]::placeholder, input[type="email"]::placeholder {
 .survey-button-2 {
   width: 300px;
   cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.survey-button-2:hover {
+  -webkit-filter: brightness(160%);
+  filter: brightness(160%);
+}
+
+/* View Group Button */
+.view-group-button {
+  padding-top: 7px;
+  height: 50px;
+  width: 300px;
+  font-size: 23px;
+  border-radius: 30px;
+  text-transform: none;
+}
+
+/* Carousel */
+.indicator-item {
+  color: #ccc;
+}
+.carousel-item {
+  background: #ffffff;
+}
+.carousel-fixed-item {
+  transform: translateY(10px);
 }
 
 /* Parsley CSS */
