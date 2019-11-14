@@ -8,9 +8,10 @@ For a demo of the app, visit: <https://herokuapp.com>
 - JavaScript
 - Jquery
 - SQL
-- Materialize CSS
+- Materialize CSS*
 - Bootstrap CSS
 - Node.js
+- [Chart js](https://www.chartjs.org/)* 
 - NPM modules - Dependencies: 
     - dotenv
     - express
@@ -27,7 +28,8 @@ For a demo of the app, visit: <https://herokuapp.com>
     - eslint-config-prettier
     - eslint-plugin-prettier
     - prettier
-
+    - serve-favicon
+*New Technologies used (*) include Materialize CSS for css and Chart js for adding different charts and graphs to visually analyse your group's personality type results coming from the three different assessments(Ennegram/ Myers & Briggs/ DISC).
 ### Prerequisites
 
 To download and test this app, you will need the Node Packet Manager installed.  For more information, visit: <https://www.npmjs.com/get-npm>
@@ -52,8 +54,6 @@ Crystal_Token = d18a5972dc9f0d4460748e825941f8c6
 
 Your app should now be ready for testing and then deployment.
 
-## Running tests
-
 Then, To use this app on your local device, and store the data on MySQL, run the following command on the command line:
 ```
 node server.js
@@ -61,6 +61,13 @@ node server.js
 
 Then go to the following URL in your browser: `localhost:8080`
 You should be able to enter your name, email, create a new group, and begin taking personality tests.
+## Running tests
+in your root project folder, type
+```
+$ mocha
+```
+It should look something like this
+![mocha test](public/images/test.png)
 
 ## Deployment and General Use
 This app can be deployed to a server, such as Heroku or AWS, for online use from different users in different locations. To store data input, you will need to utilize an online database, such as the JAWSDB_URL add-on offered by Heroku.
