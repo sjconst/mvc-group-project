@@ -2,7 +2,10 @@
 ## Overview
 The Personality Inventory application is designed to provide users with opportunities for introspection while allowing teachers a chance to get to know their students at the beginning of the year. There are three personality tests users can take: Myers-Briggs, Disc, and Enneagram. [Crystal API](https://docs.crystalknows.com/) is used to complete the surveys and return the student's personality archetype. Users must create a profile within Crystal prior to taking the test. The data is stored in a relational database and each class is given a group name. To view results for each class, click on Group Results, and select your group name from the drop-down menu.
 
-For a demo of the app, visit: <https://herokuapp.com>
+![mvc](https://user-images.githubusercontent.com/42453320/68904396-b236a780-06f2-11ea-865a-89652e561e82.gif)
+
+
+For a demo of the app, visit: <https://pure-meadow-76725.herokuapp.com/>
 
 ## Technologies Used
 - JavaScript
