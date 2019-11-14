@@ -73,6 +73,7 @@ $('.carousel.carousel-slider').carousel({
   fullWidth: true,
   indicators: true
 });
+
 //to have image that zooms in/out
 $(document).ready(function(){
   $('.materialboxed').materialbox();
@@ -97,5 +98,6 @@ function validateInput() {
 }
 
 // validateInput();
+
 
 });
