@@ -1,7 +1,6 @@
 $(document).ready(function(){
 //DOM elements
 const $tbody = $("#tbody");
-
 //APIs for profiles
 const profilesAPI = {
     getTestsByGroup: groupSelected => {
@@ -27,11 +26,40 @@ const profilesAPI = {
         });
     } 
 };
+//Test result variables for charts
+let discC = 0;
+let discD = 0;
+let discI = 0;
+let discS = 0;
+let enn1= 0;
+let enn2 = 0;
+let enn3 = 0;
+let enn4 = 0;
+let enn5 = 0;
+let enn6 = 0;
+let enn7 = 0;
+let enn8 = 0;
+let enn9 = 0;
+let ISTJ = 0;
+let ISTP = 0;
+let ESTP = 0;
+let ESTJ = 0;
+let ISFJ = 0;
+let ISFP = 0;
+let ESFP = 0;
+let ESFJ = 0;
+let INFJ = 0;
+let INFP = 0;
+let ENFP = 0;
+let ENFJ = 0;
+let INTJ = 0;
+let INTP = 0;
+let ENTP = 0;
+let ENTJ = 0;
 //Functions for creating new rows for table
 function createRow(data) {   
-    console.log(data);
     let newTable = "";
-    let testName = [];    
+    let testName = [];       
     for(var i = 0; i < data.length; i++){
         if (data.enneagramResults === "not available"){            
             testName.push("Enneagram");
@@ -59,10 +87,202 @@ function createRow(data) {
         </tr>
         `
         newTable += newRow;
+        //Results for graphs
+            //DISC            
+            switch (data[i].discResults){
+                case "C":
+                    discC++;
+                    break;
+                case "D":
+                    discD++;
+                    break;
+                case "I":
+                    discI++;
+                    break;
+                case "S":
+                    discS++;
+                    break;
+                default:
+                    let text = "no value found";
+            }
+            //Enneagram
+            switch (data[i].enneagramResults){
+                case 1:
+                    enn1++;
+                    break;
+                case 2:
+                    enn2++;
+                    break;
+                case 3:
+                    enn3++;
+                    break;
+                case 4:
+                    enn4++;
+                    break;
+                case 5:
+                    enn5++;
+                    break;
+                case 6:
+                    enn6++;
+                    break;
+                case 7:
+                    enn7++;
+                    break;
+                case 8:
+                    enn8++;
+                    break;
+                case 9:
+                    enn9++;
+                    break;
+                default:
+                    let text = "no value found";
+            }
+            //Myers-Briggs
+            switch (data[i].myersResults){
+                case "ISTJ":
+                    ISTJ++;
+                    break;
+                case "ISTP":
+                    ISTP++;
+                    break;
+                case "ESTP":
+                    ESTP++;
+                    break;
+                case "ESTJ":
+                    ESTJ++;
+                    break;
+                case "ISFJ":
+                    ISFJ++;
+                    break;
+                case "ISFP":
+                    ISFP++;
+                    break;
+                case "ESFP":
+                    ESFP++;
+                    break;
+                case "ESFJ":
+                    ESFJ++;
+                    break;
+                case "INFJ":
+                    INFJ++;
+                    break;
+                case "INFP":
+                    INFP++;
+                    break;
+                case "ENFP":
+                    ENFP++;
+                    break;
+                case "ENFJ":
+                    ENFJ++;
+                    break;
+                case "INTJ":
+                    INTJ++;
+                    break;
+                case "INTP":
+                    INTP++;
+                    break;
+                case "ENTP":
+                    ENTP++;
+                    break;
+                case "ENTJ":
+                    ENTJ++;
+                    break;
+                default:
+                        let text = "no value found";
+            }
     }
     //append to table newTable;    
     $tbody.append(newTable);       
-} 
+}; 
+//Charts code
+function getCharts() { 
+    let ctx = document.getElementById('chart1').getContext('2d');  
+    let ctx2 = document.getElementById('chart2').getContext('2d');  
+    let ctx3 = document.getElementById('chart3').getContext('2d');  
+    let chart1 = new Chart(ctx, {
+        type: 'bar',       
+        data: {
+            labels: ['I', 'S', 'C', 'D'],
+            datasets: [{
+                label: 'DISC',
+                data: [discI, discS, discC, discD],
+                backgroundColor: [
+                    '#769fb6',
+                    '#188fa7',
+                    '#468847',
+                    '#B94A48'                    
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMax: 20
+                    }
+                }]
+            },
+            legend: false,
+            title: {
+                display: true,
+                text: "DISC"
+            }
+        }
+    }); 
+    let chart2 = new Chart(ctx2, {
+        type: 'radar',       
+        data: {
+            labels: ['1', '2', '3', '4', "5", "6", "7", "8", "9"],
+            datasets: [{
+                label: 'Enneagram',
+                data: [enn1, enn2, enn3, enn4, enn5, enn6, enn7, enn8, enn9],                
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,                        
+                    }
+                }]
+            },
+            legend: false,
+            title: {
+                display: true,
+                text: "Enneagram"
+            }
+        }
+    });
+    let chart3 = new Chart(ctx3, {
+        type: 'radar',       
+        data: {
+            labels: ["ISTJ", "ISTP", "ESTP", "ESTJ", "ISFJ", "ISFP", "ESFP", "ESFJ", "INFJ", "INFP", "ENFP", "ENFJ", "INTJ", "INTP", "ENTP", "ENTJ"],
+            datasets: [{
+                label: 'DISC',
+                data: [ISTJ, ISTP, ESTP, ESTJ, ISFJ, ISFP, ESFP, ESFJ, INFJ, INFP, ENFP, ENFJ, INTJ, INTP, ENTP, ENTJ],                
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMax: 20
+                    }
+                }]
+            },
+            legend: false,
+            title: {
+                display: true,
+                text: "Myers-Briggs"
+            }
+        }
+    });
+}
 //Event listeners
 $('#group-display').change(() => {    
     $tbody.empty()
@@ -113,7 +333,10 @@ $('#group-display').change(() => {
         profilesAPI.getTestsByGroup(groupSelected)                    
         .then(data => {   
             createRow(data);
+        })
+        .then(() => { 
+            getCharts()
         })  
-    })         
+    })           
 });
 });
