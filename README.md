@@ -11,6 +11,7 @@ For a demo of the app, visit: <https://herokuapp.com>
 - Materialize CSS
 - Bootstrap CSS
 - Node.js
+- [Chart js](https://www.chartjs.org/) 
 - NPM modules - Dependencies: 
     - dotenv
     - express
