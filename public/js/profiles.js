@@ -64,14 +64,12 @@ function createRow(data) {
     $tbody.append(newTable);       
 } 
 //Event listeners
-$('#group-display').change(() => {
-    console.log("#group-display changed");
+$('#group-display').change(() => {    
     $tbody.empty()
     let groupSelected = $('#group-display').val();     
-    //get group's email from database
-    profilesAPI.getTestsByGroup(groupSelected).then(data => {
-        console.log(data);
-        //pull data from Crystal API 
+    //get group's data from database to get emails
+    profilesAPI.getTestsByGroup(groupSelected).then(data => {       
+        //pull each emails results from Crystal API 
         data.forEach(el => {
             let encodedEmail = encodeURIComponent(el.email);    
             profilesAPI.getFromCrystal(encodedEmail)
@@ -90,26 +88,22 @@ $('#group-display').change(() => {
                 if(!enn){
                     enn = "not available";
                 }
-                profilesAPI.postResult(el.email, disc, myer, enn)
-                .then(data => {                
-                    //Pull from database again, add <tr> to table for each row of data   
-                    profilesAPI.getTests()                    
-                    .then(data => {   
-                        createRow(data);
-                    })                    
-                })
+                profilesAPI.postResult(el.email, disc, myer, enn)                
             })
-            .fail(err => {
+            .fail(err => {    
+                //if Crystal API responds with error, means user doesn't have profile. Display "user not registered"            
                 console.log("User hasn't set up Crystal profile");
                 let disc = "user not registered";
                 let myer = "user not registered";
                 let enn = "user not registered"; 
-                profilesAPI.postResult(el.email, disc, myer, enn)
+                profilesAPI.postResult(el.email, disc, myer, enn)   
             })
-        }
-            
-        )
-        
+        });             
+        //Pull from database again, add <tr> to table for each row of data   
+        profilesAPI.getTestsByGroup(groupSelected)                    
+        .then(data => {   
+            createRow(data);
+        })  
     })         
 });
 });
