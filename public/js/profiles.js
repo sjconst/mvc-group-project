@@ -92,113 +92,112 @@ function createRow(data) {
         </tr>
         `
         newTable += newRow;
-    }
+    };
     //append to table newTable;    
     $tbody.append(newTable);  
-        //Results for graphs
-            //DISC            
-            switch (data[i].discResults){
-                case "C":
-                    discC++;
-                    break;
-                case "D":
-                    discD++;
-                    break;
-                case "I":
-                    discI++;
-                    break;
-                case "S":
-                    discS++;
-                    break;
-                default:
+    //Results for graphs
+        //DISC            
+        switch (data[i].discResults){
+            case "C":
+                discC++;
+                break;
+            case "D":
+                discD++;
+                break;
+            case "I":
+                discI++;
+                break;
+            case "S":
+                discS++;
+                break;
+            default:
+                let text = "no value found";
+        }
+        //Enneagram
+        switch (data[i].enneagramResults){
+            case 1:
+                enn1++;
+                break;
+            case 2:
+                enn2++;
+                break;
+            case 3:
+                enn3++;
+                break;
+            case 4:
+                enn4++;
+                break;
+            case 5:
+                enn5++;
+                break;
+            case 6:
+                enn6++;
+                break;
+            case 7:
+                enn7++;
+                break;
+            case 8:
+                enn8++;
+                break;
+            case 9:
+                enn9++;
+                break;
+            default:
+                let text = "no value found";
+        }
+        //Myers-Briggs
+        switch (data[i].myersResults){
+            case "ISTJ":
+                ISTJ++;
+                break;
+            case "ISTP":
+                ISTP++;
+                break;
+            case "ESTP":
+                ESTP++;
+                break;
+            case "ESTJ":
+                ESTJ++;
+                break;
+            case "ISFJ":
+                ISFJ++;
+                break;
+            case "ISFP":
+                ISFP++;
+                break;
+            case "ESFP":
+                ESFP++;
+                break;
+            case "ESFJ":
+                ESFJ++;
+                break;
+            case "INFJ":
+                INFJ++;
+                break;
+            case "INFP":
+                INFP++;
+                break;
+            case "ENFP":
+                ENFP++;
+                break;
+            case "ENFJ":
+                ENFJ++;
+                break;
+            case "INTJ":
+                INTJ++;
+                break;
+            case "INTP":
+                INTP++;
+                break;
+            case "ENTP":
+                ENTP++;
+                break;
+            case "ENTJ":
+                ENTJ++;
+                break;
+            default:
                     let text = "no value found";
-            }
-            //Enneagram
-            switch (data[i].enneagramResults){
-                case 1:
-                    enn1++;
-                    break;
-                case 2:
-                    enn2++;
-                    break;
-                case 3:
-                    enn3++;
-                    break;
-                case 4:
-                    enn4++;
-                    break;
-                case 5:
-                    enn5++;
-                    break;
-                case 6:
-                    enn6++;
-                    break;
-                case 7:
-                    enn7++;
-                    break;
-                case 8:
-                    enn8++;
-                    break;
-                case 9:
-                    enn9++;
-                    break;
-                default:
-                    let text = "no value found";
-            }
-            //Myers-Briggs
-            switch (data[i].myersResults){
-                case "ISTJ":
-                    ISTJ++;
-                    break;
-                case "ISTP":
-                    ISTP++;
-                    break;
-                case "ESTP":
-                    ESTP++;
-                    break;
-                case "ESTJ":
-                    ESTJ++;
-                    break;
-                case "ISFJ":
-                    ISFJ++;
-                    break;
-                case "ISFP":
-                    ISFP++;
-                    break;
-                case "ESFP":
-                    ESFP++;
-                    break;
-                case "ESFJ":
-                    ESFJ++;
-                    break;
-                case "INFJ":
-                    INFJ++;
-                    break;
-                case "INFP":
-                    INFP++;
-                    break;
-                case "ENFP":
-                    ENFP++;
-                    break;
-                case "ENFJ":
-                    ENFJ++;
-                    break;
-                case "INTJ":
-                    INTJ++;
-                    break;
-                case "INTP":
-                    INTP++;
-                    break;
-                case "ENTP":
-                    ENTP++;
-                    break;
-                case "ENTJ":
-                    ENTJ++;
-                    break;
-                default:
-                        let text = "no value found";
-            }
-    }        
+        }           
 }; 
 //Charts code
 function getCharts() { 
