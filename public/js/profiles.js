@@ -45,7 +45,7 @@ function createRow(data) {
             testName.join(", ");
         }
         let emailAddress = data.email;
-        const emailSubject = "Reminder: Take your personality test";
+        const emailSubject = "Reminder:%20Take%20your%20personality%20test";
         //can add link to site once it is deployed
         let emailBody = `This is a reminder to complete your ${testName} personality test(s).`
         let myHref= `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`
@@ -96,6 +96,7 @@ $('#group-display').change(() => {
                     profilesAPI.getTests()                    
                     .then(data => {   
                         createRow(data);
+                        console.log(data);
                     })                    
                 })
             })
