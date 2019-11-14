@@ -143,4 +143,8 @@ textarea.parsley-error {
 .parsley-errors-list.filled {
   opacity: 1;
 }
+#profilesContainer {
+padding-bottom: 50px;
+margin-bottom: 50px;
+}
   

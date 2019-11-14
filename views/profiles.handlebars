@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="profilesContainer">
     <!-- Group drop down -->
     <div class="row" align="center">
         <br><br>
@@ -15,14 +15,14 @@
     </div>
     {{!-- Charts --}}
     <div class="row">
-        <div class="col s12 m4">
-            <canvas id="chart1"></canvas> 
+        <div class="col s12 m4" id="chart1Parent">
+            {{!-- <canvas id="chart1"></canvas>  --}}
         </div>
-        <div class="col s12 m4">
-            <canvas id="chart2"></canvas> 
+        <div class="col s12 m4" id="chart2Parent">
+            {{!-- <canvas id="chart2"></canvas>  --}}
         </div>
-        <div class="col s12 m4">
-            <canvas id="chart3"></canvas> 
+        <div class="col s12 m4" id="chart3Parent">
+            {{!-- <canvas id="chart3"></canvas>  --}}
         </div>  
     </div>
     {{!-- Results Section --}}
