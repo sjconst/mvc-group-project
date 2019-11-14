@@ -8,10 +8,10 @@ For a demo of the app, visit: <https://herokuapp.com>
 - JavaScript
 - Jquery
 - SQL
-- Materialize CSS
+- Materialize CSS*
 - Bootstrap CSS
 - Node.js
-- [Chart js](https://www.chartjs.org/) 
+- [Chart js](https://www.chartjs.org/)* 
 - NPM modules - Dependencies: 
     - dotenv
     - express
@@ -28,7 +28,7 @@ For a demo of the app, visit: <https://herokuapp.com>
     - eslint-plugin-prettier
     - prettier
     - serve-favicon
-
+*New Technologies used (*) include Materialize CSS for css and Chart js for adding different charts and graphs to visually analyse your group's personality type results coming from the three different assessments(Ennegram/ Myers & Briggs/ DISC).
 ### Prerequisites
 
 To download and test this app, you will need the Node Packet Manager installed.  For more information, visit: <https://www.npmjs.com/get-npm>
