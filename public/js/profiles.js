@@ -35,15 +35,13 @@ function createRow(data) {
     for(var i = 0; i < data.length; i++){
         if (data.enneagramResults === "not available"){            
             testName.push("Enneagram");
-        } else if(data.myersResults === "not available"){            
+        } if (data.myersResults === "not available"){            
             testName.push("Myers-Brigs type-Indicator");
-        } else if (data.discResults === "not available"){           
+        } if (data.discResults === "not available"){           
             testName.push("Disc");
-        }
-        if (testName.length >= 3) {
+        } if (testName.length >= 3) {
             testName = ["Enneagram, Myers-Brigs type-Indicator, and Disc"];
-        }
-        if (testName.length > 1){
+        } if (testName.length > 1){
             testName.join(", ");
         }
         let emailAddress = data.email;

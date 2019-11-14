@@ -7,15 +7,15 @@
                       <br><br>
                       <h2 class="center-align">{{msg}}</h2>
                       <h5 class="center-align">Take one or several personality tests and save it to a group. Share the app with your students or friends to see how compatible your school is!</h5>
-                      <form class="clearfix rform" id="surveyForm">
+                      <form class="clearfix rform" id="surveyForm" data-parsley-validate>
                         <div class="container">
                           <div class="input-field form-group col s12 m6 validate">
                             <label for="name">First Name</label>
-                            <input type="text" id="name" class="form-control" aria-describedby="name" data-parsley-length="[2, 20]" placeholder="John" required="true" data-parsley-group="block1">
+                            <input type="text" id="name" class="form-control" aria-describedby="name" data-parsley-length="[2, 20]" placeholder="John" required="true" data-parsley-trigger="change">
                           </div>
                           <div class="input-field form-group col s12 m6 validate">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true" data-parsley-group="block1">
+                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="name@sample.com" data-parsley-trigger="change" required="true">
                           </div>
                           {{> group-dropdown}}
                           <h5 class="center-align">Don't see your group? Create one below! </h5>
@@ -82,16 +82,16 @@
           <a class="btn waves-effect white grey-text darken-text-2" href="#!">View Profiles</a>
         </div>
         <div class="carousel-item red white-text">
-          <h2>First Panel</h2>
+          <h2>Myers-Briggs Assessment</h2>
         </div>
         <div class="carousel-item amber white-text">
-          <h2>Second Panel</h2>
+          <h2>DISC Assessment</h2>
         </div>
         <div class="carousel-item green white-text">
-          <h2>Third Panel</h2>
+          <h2>Enneagram Assessment</h2>
         </div>
         <div class="carousel-item blue white-text">
-          <h2>Fourth Panel</h2>
+          <h2>Personality Summary</h2>
         </div>
       </div>
     </div>
