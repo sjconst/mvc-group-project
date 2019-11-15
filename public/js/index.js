@@ -37,7 +37,7 @@ const handleOpenSurvey = event => {
     M.toast({html: 'You must enter a name, email, and group!'});
     return;
   }
-  window.open(`https://app.crystalknows.com/personality-test?25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=${encodedEmail}`, '_blank');   
+  window.open(`https://app.crystalknows.com/assessment?api_customer_id=25d0c957-4006-4970-b5ab-460b29d29ef6&api_company_name=Student&api_user_email=${encodedEmail}`, '_blank');   
   try {
     API.saveUser(nameInput, emailInput, group)
     .then(data => {      

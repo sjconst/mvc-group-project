@@ -14,6 +14,7 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isEmail: true,
         notEmpty: true,
+        unique: true,
         len: [1, 30]
       }
     },
