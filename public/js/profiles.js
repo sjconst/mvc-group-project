@@ -265,7 +265,7 @@ $(document).ready(function() {
         datasets: [
           {
             label: "Enneagram",
-            backgroundColor: ["#769fb6", "#188fa7", "#468847", "#B94A48"],
+            backgroundColor: ["#769fb6", "#188fa7", "#468847", "#B94A48", "#769fb6", "#188fa7", "#468847", "#B94A48", "#769fb6"],
             data: [enn1, enn2, enn3, enn4, enn5, enn6, enn7, enn8, enn9],
             borderWidth: 1
           }
